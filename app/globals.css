@@ -1,0 +1,97 @@
+:root {
+  --bg: #fff;
+  --surface: #f7f7f8;
+  --border: #e3e3e7;
+  --fg: #16161a;
+  --muted: #6b6b76;
+  --accent: #2563eb;
+  --error: #b91c1c;
+  --ok: #15803d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f11;
+    --surface: #17171a;
+    --border: #2a2a30;
+    --fg: #f2f2f3;
+    --muted: #9b9ba6;
+    --accent: #60a5fa;
+    --error: #fca5a5;
+    --ok: #86efac;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+main { max-width: 640px; margin: 0 auto; padding: 40px 20px 80px; }
+
+h1 { font-size: 24px; margin: 0; }
+p { margin: 4px 0; overflow-wrap: anywhere; }
+small { color: var(--muted); font-size: 13px; }
+small.error { color: var(--error); }
+
+.row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.grow { flex: 1; min-width: 0; }
+.center { color: var(--muted); font-size: 14px; text-align: center; padding: 8px 0; }
+
+.card strong { display: block; }
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+button, .button {
+  font: inherit;
+  font-size: 14px;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.danger { color: var(--error); }
+
+.alert {
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+.alert.error { color: var(--error); }
+.alert.ok { color: var(--ok); }
+
+form { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; width: 100%; }
+
+input, textarea {
+  font: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+}
+
+textarea { min-height: 110px; resize: vertical; }
